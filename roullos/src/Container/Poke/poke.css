@@ -1,0 +1,38 @@
+.poke-container{
+	margin: 2rem 0 0 1rem ;
+	width: 20rem;
+	height: 30rem;
+	border: 0.1rem solid #aaa ;
+	display: flex;
+	flex-direction: column;
+}
+.poke-image{
+	width: 20rem;
+	height: 20rem;
+}
+.poke-info{
+	/* display: flex; */
+	width: 20rem;
+	height: 10rem;
+}
+.poke-id{
+	margin: 0.5rem 0.5rem ;
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+.poke-name{
+	font-size: 2rem;
+	margin: 0.5rem 0.5rem ;
+	font-weight: 700;
+}
+.poke-type{
+	display: flex;
+	font-size: 1.5rem;
+	text-align: center;
+}
+.poke-type-container{
+	width: 8rem;
+	padding: auto;
+	margin: 0.5rem 0.5rem ;
+}

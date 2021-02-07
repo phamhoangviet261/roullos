@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+body {
+  
+}
+
+
+.container {
+  display: flex;
+  opacity: 0.9;
+  background-color: whitesmoke;
+  justify-content: center;
+}
+
+
+
+input {
+  box-sizing: border-box;
+  font-size: 2rem;
+  padding: 1rem;
+  display: block;
+  margin: 2rem auto;
+}
