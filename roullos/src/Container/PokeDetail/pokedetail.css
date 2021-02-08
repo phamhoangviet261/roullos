@@ -1,0 +1,117 @@
+.pokedetail{
+    display: flex;
+    flex-direction: column;
+    width: 60em;
+    margin: 0 20rem;
+    
+}
+/* ------------------------------------- */
+.pokedetail-header{
+    width: 60em;
+    display: flex;
+    flex-direction: row;
+    
+}
+.pokedetail-header-name{
+    width: 30em;
+}
+.pokedetail-header-id{
+    width: 30em;
+}
+/* ------------------------------------- */
+.pokedetail-info{
+    width: 60em;
+    display: flex;
+    flex-direction: row;
+    
+}
+.pokedetail-info-image{
+    width: 30em;
+}
+.pokedetail-info-parameter{
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+    
+}
+.pokedetail-info-parameter__version{
+    width: 30em;
+    
+}
+.pokedetail-info-parameter__info{
+    width: 30em;
+    display: flex;
+    flex-direction: row;
+    background-color: #30A7D7;
+    border-radius: 0.8rem;
+    border: none;
+    font-weight: 500;
+    line-height: 1rem;
+    text-align: left;
+    padding-bottom: 1.5rem;
+}
+.pokedetail-info-parameter__info > div > div > p{
+    color: white;
+}
+/* ------------------------------------- */
+.pokedetail-stattype{
+    width: 60em;
+    display: flex;
+    flex-direction: row;
+    
+}
+.pokedetail-stattype-stat{
+    width: 30em;
+    display: flex;
+    flex-direction: row;
+    background-color: #A4A4A4;
+    border-radius: 0.4rem;
+}
+.pokedetail-stattype-stat__column{
+    width: 3.75rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    font-weight: 500;
+}
+.items-stat__white{
+    width: 4rem;
+    height: 0.6rem;
+    background-color: white;
+    margin: 0.15rem;
+}
+.items-stat__blue{
+    width: 4rem;
+    height: 0.6rem;
+    background-color:#30A7D7;
+    margin: 0.15rem;
+}
+/* ------------------------------------- */
+.pokedetail-stattype-type{
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+}
+.pokedetail-stattype-type__type{
+    width: 30em;
+    display: flex;
+    flex-direction: row;
+}
+.pokedetail-stattype-type__type__custom{
+    border-radius: 10rem;
+    width: 10rem;
+    height: 2.5rem;
+    padding-top: 1rem;
+    margin: 0 2rem;
+}
+.pokedetail-stattype-type__weakness{
+    width: 30em;
+    display: flex;
+    flex-direction: row;
+}
+/* ------------------------------------- */
+.pokedetail-evolution{
+    width: 60em;
+    display: flex;
+    flex-direction: row;
+    
+}

@@ -2,33 +2,36 @@ import React, { Component } from 'react';
 import './poke.css'
 import './script.js'
 import $ from 'jquery'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Redirect,
+    useParams,
+    useRouteMatch
+  } from "react-router-dom";
 import PokeDetail from '../PokeDetail/pokedetail.js'
 class Poke extends Component {
     constructor(props) {
         super(props);
 
     }
-
-    handleClick(){
-        alert("Click...");
-        return (
-            <PokeDetail></PokeDetail>
-        )
-    }
+    
 
     render() { 
-        console.log(this.props.data);
-        console.log(this.props.data.types);
         return ( 
             <div className="poke-container">
                <div className="poke-image">
-                <img src={this.props.data.sprites["front_default"]} alt="Pokemon" className="poke-img" width="100%"/>
+                <img src={this.props.data.sprites["other"]["official-artwork"]["front_default"]} alt="Pokemon" className="poke-img" width="100%"/>
                </div>
                <div className="poke-info">
                    <div className="poke-id">#{this.props.data.id}</div>
-                    <div className="poke-name" onClick={this.handleClick}>
-                        {this.props.data.forms[0].name.charAt(0).toUpperCase()+this.props.data.forms[0].name.slice(1)}
-                    </div>
+                    <Link to={`${this.props.data.id}`} style={{ textDecoration: 'none' }}>
+                        <div className="poke-name">
+                            {this.props.data.forms[0].name.charAt(0).toUpperCase()+this.props.data.forms[0].name.slice(1)}
+                        </div>
+                    </Link>
                     <div className="poke-type">
                         {this.props.data.types.map((item)=>{
                             return (
@@ -67,7 +70,7 @@ class Type extends React.Component {
         Water: "#4592C4",
     }
     render() {
-        console.log("Type: " + this.props.typePika);
+        //console.log("Type: " + this.props.typePika);
       return(
         
         <div className="poke-type-container" style={{backgroundColor: this.colorByType[this.props.typePika]}}>

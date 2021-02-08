@@ -22,9 +22,11 @@
 }
 
 .poke-name{
+	cursor: pointer;
 	font-size: 2rem;
 	margin: 0.5rem 0.5rem ;
 	font-weight: 700;
+	text-decoration: none;
 }
 .poke-type{
 	display: flex;
@@ -35,4 +37,5 @@
 	width: 8rem;
 	padding: auto;
 	margin: 0.5rem 0.5rem ;
+	border-radius: 10rem;
 }
