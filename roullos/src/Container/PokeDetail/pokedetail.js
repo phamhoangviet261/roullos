@@ -21,6 +21,7 @@ class PokeDetail extends Component {
             abilities: [],
             stats: [],
             types: [],
+            evolutions: [],
         };
         let id = 1;
     }
@@ -40,7 +41,23 @@ class PokeDetail extends Component {
         }
         this.getStats();
         this.getType();
-        console.log(this.state)
+        console.log(this.state.data)
+        this.getEvolution();
+    }
+
+    async getEvolution(){
+        fetch(`https://pokeapi.glitch.me/v1/pokemon/${window.location.href.slice(22)}`)
+        .then(res => res.json())
+        .then(
+            (result) => {
+                this.setState({
+                    evolutions: result
+                });
+            },
+            (error) => {
+                console.log(error);
+            }
+        )
     }
 
     getType = () => {
@@ -54,7 +71,7 @@ class PokeDetail extends Component {
     getStats = () => {
         let statsArray = [];
         for(let i = 0; i < 6; i++){
-            statsArray.push(Math.round(this.state.data.stats[i].base_stat/15));
+            statsArray.push(this.state.data.stats[i].base_stat);
         }
         this.setState({stats: statsArray})
     }
@@ -123,10 +140,10 @@ const Info = (props) => {
         <div className="pokedetail-info-parameter__info">
             <div style={{display: "flex", flexDirection: "column", width: "14rem", paddingLeft: "1rem"}}>
                 <div>
-                    <p>Height: </p>{props.data.height}'
+                    <p>Height: </p>{props.data.height} m
                 </div>
                 <div>
-                    <p>Weight: </p>{props.data.weight} lbs
+                    <p>Weight: </p>{props.data.weight} kg
                 </div>
             </div>
             <div style={{display: "flex", flexDirection: "column", width: "14rem", paddingLeft: "1rem"}}>
@@ -163,17 +180,17 @@ const Stat = (props) => {
 }
 const StatColumn = (props) => {
     let items = [];
-    for (let i = 0; i < 15 - props.num; i++) {
+    for (let i = 0; i < 15 - Math.round(props.num/15); i++) {
         items.push(<div className="items-stat__white"></div>);
       }
-    for (let i = 0; i < props.num; i++) {
+    for (let i = 0; i < Math.round(props.num/15); i++) {
       items.push(<div className="items-stat__blue"></div>);
     }
     
     return (
         <div className="pokedetail-stattype-stat__column">
             {items}
-            {props.name}
+            {props.name}: {props.num}
         </div>
     )
 }
