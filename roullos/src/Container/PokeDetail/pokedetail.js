@@ -15,9 +15,11 @@ import './pokedetail.css'
 class PokeDetail extends Component {
     constructor(props) {
         super(props);
-        this.state = { data: [] , 
+        this.state = { 
+            data: [] , 
             linkImage: "", 
             name: "",
+            id: "",
             abilities: [],
             stats: [],
             types: [],
@@ -46,18 +48,24 @@ class PokeDetail extends Component {
     }
 
     async getEvolution(){
-        fetch(`https://pokeapi.glitch.me/v1/pokemon/${window.location.href.slice(22)}`)
-        .then(res => res.json())
-        .then(
-            (result) => {
-                this.setState({
-                    evolutions: result
-                });
-            },
-            (error) => {
-                console.log(error);
-            }
-        )
+        let toArray = [];
+        try {
+            //const url = `http://pokeapi.salestock.net/api/v2/evolution-chain/${this.state.data.id}`;
+            const url = `https://pogoapi.net/api/v1/pokemon_evolutions.json`;
+            console.log(url)
+            const res = await axios.get(url, {
+                header: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS, HEAD",
+                    "Content-Type": "text/html; charset=UTF-8"
+                }});
+            toArray.push(res.data);
+            console.log(this.state.data.id);
+            console.log(this.state.name)
+            console.log(toArray[0]);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     getType = () => {
